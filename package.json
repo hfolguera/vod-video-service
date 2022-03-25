@@ -1,0 +1,12 @@
+{
+    "name": "vod-video-service",
+    "version": "1.0.0",
+    "description": "Nodejs+Express+Mongodb REST example",
+    "main": "app.js",
+    "dependencies": {
+        "mongoose": "latest",
+        "express": "latest",
+        "method-override": "latest",
+        "body-parser": "latest"
+    }
+}

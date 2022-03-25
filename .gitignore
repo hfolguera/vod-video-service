@@ -1,0 +1,14 @@
+# Ignore temporary files
+**.swp
+**.bck
+**.old
+**.tmp
+.DS_Store
+
+# Ignore large files
+*.zip
+*.tar.gz
+
+# Ignore Node files
+node_modules
+package-lock.json
