@@ -16,5 +16,6 @@ docker build -t vod-video-service .
 ```
 
 ## Next steps
-2. Create an Admin API to wipe database, batch-load examples
-4. Deploy to Kubernetes
+1. Create an Admin API to wipe database, batch-load examples
+1. Deploy to Kubernetes
+1. Automate tests

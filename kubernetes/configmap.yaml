@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: vod-video-service-configmap
+  namespace: vod
+data:
+  connection_string: mongodb://root:*****@mongodb.calfolguera.com:27017/vod-video-service?authSource=admin

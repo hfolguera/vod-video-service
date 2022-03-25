@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: vod-video-service-deployment
+  namespace: vod
+  labels:
+    app: vod-video-service
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: vod-video-service
+  template:
+    metadata:
+      labels:
+        app: vod-video-service
+    spec:
+      containers:
+        - name: vod-video-service
+          image: hfolguera/vod-video-service:latest
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 2000
+          env:
+            - name: MONGODB_URL
+              valueFrom:
+                  configMapKeyRef:
+                    name: mongo-configmap
+                    key: connection_string

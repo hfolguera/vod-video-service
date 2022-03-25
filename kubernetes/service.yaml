@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: vod-video-service-service
+spec:
+  type: NodePort
+  selector:
+    app: vod-video-service
+  ports:
+    - protocol: TCP
+      port: 2000
+      targetPort: 2000
+      nodePort: 2000
