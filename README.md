@@ -10,13 +10,11 @@ Technology: NodeJS + Express + Mongodb.
 MONGODB_URL="mongodb://root:*****@mongodb.calfolguera.com:27017/vod-video-service?authSource=admin" node app.js
 ```
 
-## Application deployment
+## Application build
 ```
-docker build -t video-backend-app .
-docker run -it -p 2000:2000 video-backend-app
+docker build -t vod-video-service .
 ```
 
 ## Next steps
 2. Create an Admin API to wipe database, batch-load examples
-3. Integrate with Jenkins or other CI/CD
 4. Deploy to Kubernetes
