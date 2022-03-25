@@ -1,14 +1,13 @@
-# video-backend
-Repository for NodeJS REST application example.
+# vod-video-service
+This repository is part of the VOD Demo and stores a backend microservice for managing videos.
 
 This application creates a CRUD REST API for storing Videos on Mongodb.
 
 Technology: NodeJS + Express + Mongodb.
 
-## Mongodb deployment
+## Local development
 ```
-docker pull mongo
-docker run -d -p 27017:27017 --name video-backend-mongo mongo
+MONGODB_URL="mongodb://root:*****@mongodb.calfolguera.com:27017/vod-video-service?authSource=admin" node app.js
 ```
 
 ## Application deployment
@@ -18,13 +17,6 @@ docker run -it -p 2000:2000 video-backend-app
 ```
 
 ## Next steps
-1. Avoid hard-coding IPs and other variables
 2. Create an Admin API to wipe database, batch-load examples
-3. Integrate with Jenkins CI/CD
+3. Integrate with Jenkins or other CI/CD
 4. Deploy to Kubernetes
-
-
-
-
-----
-MONGODB_URL="mongodb+srv://m001-student:m001-mongodb-basics@sandbox.x62lz.mongodb.net/" node app.js
