@@ -25,5 +25,5 @@ spec:
             - name: MONGODB_URL
               valueFrom:
                   configMapKeyRef:
-                    name: mongo-configmap
+                    name: vod-video-service-configmap
                     key: connection_string

@@ -2,12 +2,13 @@ apiVersion: v1
 kind: Service
 metadata:
   name: vod-video-service-service
+  namespace: vod
 spec:
-  type: NodePort
+  #type: NodePort
   selector:
     app: vod-video-service
   ports:
     - protocol: TCP
       port: 2000
       targetPort: 2000
-      nodePort: 2000
+      #nodePort: 2000
