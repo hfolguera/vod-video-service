@@ -11,4 +11,4 @@ spec:
     - protocol: TCP
       port: 2000
       targetPort: 2000
-      nodePort: 302000
+      nodePort: 32000
