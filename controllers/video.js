@@ -1,9 +1,15 @@
 var mongoose = require('mongoose');
 var Video = mongoose.model('Video');
+const { createLogger, format, transports } = require("winston");
+
+const logger = createLogger({
+    format: format.combine(format.timestamp(), format.json()),
+    transports: [new transports.Console({})],
+});
 
 // Get all videos
 exports.getVideos = function(req, res) {
-    console.log('GET /video');
+    logger.info(req);
 
     Video.find(function(err, video){
         if(err) res.send(500, err.message);
@@ -13,7 +19,7 @@ exports.getVideos = function(req, res) {
 
 // Get one video by _id
 exports.getVideoById = function(req, res) {
-    console.log('GET /video' + req.params.id);
+    logger.info(req.body);
 
     Video.findById(req.params.id, function(err, video) {
         if(err) return res.send(500, err.message);
@@ -23,8 +29,8 @@ exports.getVideoById = function(req, res) {
 
 // Add video
 exports.addVideo = function(req, res) {
-    console.log('POST /video');
-    console.log(req.body);
+    logger.info(req);
+
 
     var video = new Video({
         title:     req.body.title,
@@ -42,8 +48,7 @@ exports.addVideo = function(req, res) {
 
 // Update video
 exports.updateVideo = function(req, res) {
-    console.log('PUT /video' + req.params.id);
-    console.log(req.body);
+    logger.info(req);
 
     Video.findById(req.params.id, function(err, video) {
         video.title = req.body.title;
@@ -61,7 +66,7 @@ exports.updateVideo = function(req, res) {
 
 // Delete video
 exports.deleteVideo = function(req, res) {
-    console.log('DELETE /video' + req.params.id);
+    logger.info(req);
 
 	Video.findById(req.params.id, function(err, video) {
 		video.remove(function(err) {

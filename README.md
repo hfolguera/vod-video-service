@@ -5,6 +5,13 @@ This application creates a CRUD REST API for storing Videos on Mongodb.
 
 Technology: NodeJS + Express + Mongodb.
 
+## Requirements
+Mongodb
+
+## CI/CD Workflow
+`TODO`
+
+
 ## Local development
 ```
 MONGODB_URL="mongodb://root:*****@mongodb.calfolguera.com:27017/vod-video-service?authSource=admin" node app.js
@@ -17,6 +24,6 @@ docker build -t vod-video-service .
 
 ## Next steps
 1. Create an Admin API to wipe database, batch-load examples
-1. Deploy to Kubernetes
 1. Automate tests
-1. Improve log output
+1. Automate k8s deployment with GitOps (ArgoCD)
+1. Improve error management: Dont return error code but a generic message, log detailed error, improve handler

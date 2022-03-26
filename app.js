@@ -4,6 +4,13 @@ var express = require("express"),
     methodOverride = require("method-override"),
     mongoose = require('mongoose');
 
+const { createLogger, format, transports } = require("winston");
+
+const logger = createLogger({
+    format: format.combine(format.timestamp(), format.json()),
+    transports: [new transports.Console({})],
+});
+
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(methodOverride());
@@ -14,9 +21,9 @@ var MONGODB_URL = process.env['MONGODB_URL']
 // Database connection
 mongoose.connect(MONGODB_URL, { useNewUrlParser: true, useUnifiedTopology: true }, function(err, res) {
     if (err) {
-        console.log('ERROR: connecting to Database. ' + err);
+        logger.fatal('ERROR: connecting to Database. ' + err);
     } else {
-        console.log('Connected to Database. ');
+        logger.info('Connected to Database.')
     }
 });
 
@@ -48,5 +55,5 @@ app.use(router);
 
 
 app.listen(2000, function() {
-    console.log("Node server running on http://localhost:2000");
+    logger.info("Node server running on http://localhost:2000");
 });
