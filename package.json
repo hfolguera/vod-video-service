@@ -3,6 +3,9 @@
     "version": "1.0.3",
     "description": "Nodejs+Express+Mongodb REST example",
     "main": "app.js",
+    "scripts": {
+        "test": "mocha --timeout 20000 --exit"
+    },
     "dependencies": {
         "mongoose": "^6.2.8",
         "express": "^4.17.3",
@@ -11,5 +14,10 @@
         "winston": "^3.6.0",
         "swagger-jsdoc": "^6.1.0",
         "swagger-ui-express": "^4.1.6"
+    },
+    "devDependencies": {
+        "chai": "^4.3.4",
+        "chai-http": "^4.3.0",
+        "mocha": "^9.1.3"
     }
 }
