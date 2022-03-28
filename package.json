@@ -1,6 +1,6 @@
 {
     "name": "vod-video-service",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "description": "Nodejs+Express+Mongodb REST example",
     "main": "app.js",
     "dependencies": {
