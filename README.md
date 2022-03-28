@@ -18,7 +18,7 @@ k create secret generic mongodb-secret --from-literal=user=******** --from-liter
 
 ## Local development
 ```
-MONGODB_URL="mongodb://root:*****@mongodb.calfolguera.com:27017/vod-video-service?authSource=admin" node app.js
+MONGODB_URL="mongodb://mongodb.calfolguera.com:27017/vod-video-service?authSource=admin" MONGODB_USER=******** MONGODB_PASSWORD=******** node app.js
 ```
 
 ## Application build
