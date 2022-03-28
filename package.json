@@ -1,14 +1,14 @@
 {
     "name": "vod-video-service",
-    "version": "1.0.2",
+    "version": "1.0.3",
     "description": "Nodejs+Express+Mongodb REST example",
     "main": "app.js",
     "dependencies": {
-        "mongoose": "latest",
-        "express": "latest",
-        "method-override": "latest",
-        "body-parser": "latest",
-        "winston": "latest",
+        "mongoose": "^6.2.8",
+        "express": "^4.17.3",
+        "method-override": "^3.0.0",
+        "body-parser": "^1.19.2",
+        "winston": "^3.6.0",
         "swagger-jsdoc": "^6.1.0",
         "swagger-ui-express": "^4.1.6"
     }
