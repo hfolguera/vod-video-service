@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: vod-video-service
-          image: hfolguera/vod-video-service:1.0.1
+          image: hfolguera/vod-video-service:1.0.2
           imagePullPolicy: Always
           ports:
             - containerPort: 2000
@@ -27,3 +27,13 @@ spec:
                   configMapKeyRef:
                     name: vod-video-service-configmap
                     key: connection_string
+            - name: MONGODB_USER
+              valueFrom:
+                secretKeyRef:
+                  name: mongodb-secret
+                  key: user
+            - name: MONGODB_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: mongodb-secret
+                  key: pass

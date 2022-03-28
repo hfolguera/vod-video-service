@@ -4,4 +4,4 @@ metadata:
   name: vod-video-service-configmap
   namespace: vod
 data:
-  connection_string: "mongodb://root:****@mongodb-standalone.mongodb.svc.calfolguera.com:27017/vod-video-service?authSource=admin"
+  connection_string: "mongodb://mongodb-standalone.mongodb.svc.calfolguera.com:27017/vod-video-service?authSource=admin"

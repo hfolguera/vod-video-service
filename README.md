@@ -7,6 +7,10 @@ Technology: NodeJS + Express + Mongodb.
 
 ## Requirements
 Mongodb
+Create mongodb secret:
+```
+k create secret generic mongodb-secret --from-literal=user=******** --from-literal=pass=******** -n vod
+```
 
 ## CI/CD Workflow
 `TODO`
