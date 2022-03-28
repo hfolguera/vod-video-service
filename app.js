@@ -1,57 +1,46 @@
 var express = require("express"),
     app = express(),
     bodyParser  = require("body-parser"),
-    methodOverride = require("method-override"),
-    mongoose = require('mongoose');
-
-const { createLogger, format, transports } = require("winston");
-
-const logger = createLogger({
-    format: format.combine(format.timestamp(), format.json()),
-    transports: [new transports.Console({})],
-});
+    methodOverride = require("method-override")
+    //mongoose = require('mongoose');
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(methodOverride());
 
-// Read environment variables
-var MONGODB_URL = process.env['MONGODB_URL']
+// Logger configuration
+const logger = require('./config/logger.config').logger;
 
-// Database connection
-mongoose.connect(MONGODB_URL, { useNewUrlParser: true, useUnifiedTopology: true }, function(err, res) {
-    if (err) {
-        logger.fatal('ERROR: connecting to Database. ' + err);
-    } else {
-        logger.info('Connected to Database.')
-    }
-});
+// Database configuration
+require('./config/db.config');
 
 // Models
-var models = require('./models/video')(app,mongoose);
+var models = require('./models/video.model')(app); // Needed?
 
+// Routes
+require('./routes/video.routes')(app,express);
 // Controllers
-var VideoController = require('./controllers/video');
-var video = express.Router();
+// var VideoController = require('./controllers/video.controller');
+// var video = express.Router();
 
-video.route('/video')
-    .get(VideoController.getVideos)
-    .post(VideoController.addVideo);
+// video.route('/video')
+//     .get(VideoController.getVideos)
+//     .post(VideoController.addVideo);
 
-video.route('/video/:id')
-    .get(VideoController.getVideoById)
-    .put(VideoController.updateVideo)
-    .delete(VideoController.deleteVideo);
+// video.route('/video/:id')
+//     .get(VideoController.getVideoById)
+//     .put(VideoController.updateVideo)
+//     .delete(VideoController.deleteVideo);
 
-app.use('/api', video);
+// app.use('/api', video);
 
-var router = express.Router();
+// var router = express.Router();
 
-router.get('/', function(req, res) {
-   res.send("Hello World!");
-});
+// router.get('/', function(req, res) {
+//    res.send("Hello World!");
+// });
 
-app.use(router);
+// app.use(router);
 
 
 app.listen(2000, function() {

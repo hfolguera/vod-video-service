@@ -1,4 +1,6 @@
-exports = module.exports = function(app, mongoose) {
+const mongoose = require('mongoose');
+
+exports = module.exports = function(app) {
 
 	var videoSchema = new mongoose.Schema({
         title:  { type: String },

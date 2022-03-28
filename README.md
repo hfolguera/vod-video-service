@@ -25,5 +25,5 @@ docker build -t vod-video-service .
 ## Next steps
 1. Create an Admin API to wipe database, batch-load examples
 1. Automate tests
-1. Automate k8s deployment with GitOps (ArgoCD)
 1. Improve error management: Dont return error code but a generic message, log detailed error, improve handler
+1. Add Swagger (https://medium.com/sahibinden-technology/simple-dockerized-crud-node-js-web-app-unit-tests-b937a622f16a)
